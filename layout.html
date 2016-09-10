@@ -1,24 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<title>TrainTime</title>
-
-	<!-- Bootstrap CDN-->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TrainTime</title>
+    <!-- Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- <script type="text/javascript" src="/bootstrap-timepicker.min.js"></script> -->
 </head>
+
 <body>
+    <div class="container-fluid">           
+                <div class="jumbotron">
+                    <div class="container-flex center-text">
+                        <h1>Anytime is Train Time</h1>
+                        <p>Choo Choo. Chee Chee.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Current Train Schedule Panel -->
+            <div class=container-fluid>
 
-  <div class="container">
-    <!-- app HTML goes here -->
-  </div>
-
-	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Current Train Schedule</h3>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Train Name</th>
+                                <th>Destination</th>
+                                <th>Frequency (min)</th>
+                                <th>Next Arrival</th>
+                                <th>Minutes Away</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table_body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+       
+    <!-- Add Train Panel -->
+    <div class="container-fluid">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add Train</h3>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Train Name</label>
+                <input class="form-control" id="train_name" type="text">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Destination</label>
+                <input class="form-control" id="destination" type="text">
+            </div>
+            <!-- Military Timepicker http://weareoutman.github.io/clockpicker/-->
+            <div class="form-group">
+                <label class="control-label">First Train Time(HH:mm - military time)</label>
+                <div class="input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true">
+                    <input type="text" class="form-control" value="13:14" id="firstTTime">
+                    <span class="input-group-addon">
+        		<span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Frequency (min)</label>
+                <input class="form-control" id="frequency" type="number">
+            </div>
+            <button id="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
+	<!-- Firebase Reference -->
+	<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+	<script src="logic.js"></script>
 </body>
+
 </html>
